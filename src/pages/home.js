@@ -5,12 +5,12 @@ import "aos/dist/aos.css";
 import Services from "../components/post/services";
 import About from "../components/post/about";
 import Slogan from "../components/post/slogan";
-import Roms from "../components/post/roms";
+import Roms from "../components/post/room/roms";
 import Tour from "../components/post/tour";
 import Comment from "../components/post/comment";
 import Rating from "../components/post/rating";
 import Restaurant from "../components/post/restaurant";
-import Blog from "../components/post/blog";
+import Blog from "../components/post/blog/blogs";
 import Gallery from "../components/post/gallery";
 
 export default class Home extends Component {
