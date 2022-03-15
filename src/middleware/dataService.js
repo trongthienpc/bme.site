@@ -1,7 +1,5 @@
-const url = "http://localhost:8000/api";
-
 const getAllRoom = async () => {
-  const rooms = await fetch(`${url}/rooms/`)
+  const rooms = await fetch(`${process.env.REACT_APP_API_URL}/rooms/`)
     .then((response) => {
       return response;
     })
@@ -13,7 +11,7 @@ const getAllRoom = async () => {
 };
 
 const getRoomById = async (id) => {
-  const room = await fetch(`${url}/rooms/${id}`)
+  const room = await fetch(`${process.env.REACT_APP_API_URL}/rooms/${id}`)
     .then((response) => {
       return response;
     })
@@ -24,7 +22,7 @@ const getRoomById = async (id) => {
 };
 
 const getAllBlog = async () => {
-  const blogs = await fetch(`${url}/blogs/`)
+  const blogs = await fetch(`${process.env.REACT_APP_API_URL}/blogs/`)
     .then((response) => {
       return response;
     })
@@ -36,7 +34,7 @@ const getAllBlog = async () => {
 };
 
 const getBlogById = async (id) => {
-  const blog = await fetch(`${url}/blogs/${id}`)
+  const blog = await fetch(`${process.env.REACT_APP_API_URL}/blogs/${id}`)
     .then((response) => {
       return response;
     })

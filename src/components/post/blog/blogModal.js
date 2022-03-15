@@ -2,8 +2,9 @@ import React from "react";
 import { Modal } from "react-bootstrap";
 import BlogDetail from "./blogDetail";
 
-const BlogModal = ({ lgShow, setLgShow, blogName, blogId }) => {
+const BlogModal = ({ lgShow, setLgShow }) => {
   console.log(lgShow);
+  const blog = JSON.parse(localStorage.getItem("blog")) || "";
   const handleHide = () => {
     setLgShow(false);
   };
@@ -18,11 +19,11 @@ const BlogModal = ({ lgShow, setLgShow, blogName, blogId }) => {
       >
         <Modal.Header closeButton>
           <Modal.Title id="example-modal-sizes-title-lg">
-            {blogName}
+            {blog.name}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <BlogDetail blogId={blogId} />
+          <BlogDetail blogId={blog._id} />
         </Modal.Body>
       </Modal>
     </div>

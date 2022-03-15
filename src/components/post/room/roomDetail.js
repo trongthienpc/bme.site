@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Carousel, CarouselItem } from "react-bootstrap";
 import "./roomDetail.css";
-import { getRoomDetail, getServices } from "../../../middleware/data";
+import { getServices } from "../../../middleware/data";
 
 const RoomDetail = ({ roomId }) => {
   const room = JSON.parse(localStorage.getItem("room")) || "";
+
   let services = getServices();
   return (
     <div id="roomDetail">

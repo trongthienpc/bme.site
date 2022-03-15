@@ -22,14 +22,18 @@ const Roms = () => {
   }, []);
 
   const handeDetail = async (text, id) => {
-    setLgShow(true);
-    setRoomName(text);
-    setRoomId(id);
-
-    const roomDetail = await getRoomById(id);
-    console.log(roomDetail);
-    if (roomDetail) localStorage.setItem("room", JSON.stringify(roomDetail));
-    setActive(true);
+    const roomDetail = await getRoomById(id)
+      .then((response) => {
+        localStorage.removeItem("room");
+        localStorage.setItem("room", JSON.stringify(response));
+      })
+      .then((data) => {
+        // setRoomName(text);
+        // setRoomId(id);
+        setLgShow(true);
+        setActive(true);
+      });
+    return roomDetail;
   };
   return (
     <div id="rooms">
@@ -83,14 +87,7 @@ const Roms = () => {
                   </div>
                 </div>
               ))}
-            {active && (
-              <RoomModal
-                lgShow={lgShow}
-                setLgShow={setLgShow}
-                roomName={roomName}
-                roomId={roomId}
-              />
-            )}
+            {active && <RoomModal lgShow={lgShow} setLgShow={setLgShow} />}
           </div>
         </div>
       </section>

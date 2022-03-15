@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import Moment from "react-moment";
+import "moment-timezone";
 import { getAllBlog, getBlogById } from "../../../middleware/dataService";
 import BlogModal from "./blogModal";
 const Blog = () => {
@@ -20,12 +22,16 @@ const Blog = () => {
   }, []);
 
   const handleDetail = async (name, id) => {
-    setBlogName(name);
-    setBlogId(id);
-    setLgShow(true);
-    const entity = await getBlogById(id);
-    if (entity) localStorage.setItem("blog", JSON.stringify(entity));
-    setActive(true);
+    const entity = await getBlogById(id)
+      .then((response) => {
+        localStorage.removeItem("blog");
+        if (response) localStorage.setItem("blog", JSON.stringify(response));
+      })
+      .then(() => {
+        setLgShow(true);
+        setActive(true);
+      });
+    return entity;
   };
 
   return (
@@ -60,7 +66,15 @@ const Blog = () => {
                   ></NavLink>
                   <div className="text">
                     <p className="meta">
-                      <span>{blog.author}</span> <span>{blog.createdAt}</span>
+                      <span>{blog.author}</span>
+                      <span>
+                        <Moment
+                          // format="DD/MM/YYYY"
+                          toNow
+                        >
+                          {blog.createdAt}
+                        </Moment>{" "}
+                      </span>
                     </p>
                     <h3 className="heading mb-3">
                       <NavLink

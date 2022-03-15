@@ -3,7 +3,9 @@ import { Modal } from "react-bootstrap";
 
 import RoomDetail from "./roomDetail";
 
-const RoomModal = ({ lgShow, setLgShow, roomName, roomId }) => {
+const RoomModal = ({ lgShow, setLgShow }) => {
+  const room = JSON.parse(localStorage.getItem("room")) || "";
+  console.log(room);
   console.log("call room modal");
   return (
     <div>
@@ -15,11 +17,11 @@ const RoomModal = ({ lgShow, setLgShow, roomName, roomId }) => {
       >
         <Modal.Header closeButton>
           <Modal.Title id="example-modal-sizes-title-lg">
-            {roomName}
+            {room.name}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <RoomDetail roomId={roomId} />
+          <RoomDetail roomId={room._id} />
         </Modal.Body>
       </Modal>
     </div>
