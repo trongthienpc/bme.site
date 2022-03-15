@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { getAllRoom, getRoomById } from "../../../middleware/dataService";
 import RoomModal from "./roomModal";
+import "./room.css";
 const Roms = () => {
   const [rooms, setRooms] = useState([]);
   const [lgShow, setLgShow] = useState(false);
@@ -49,7 +50,7 @@ const Roms = () => {
               <h2 className="mb-4">Featured Rooms</h2>
             </div>
           </div>
-          <div className="row justify-content-center">
+          <div className="row justify-content-center room">
             {rooms &&
               rooms.map((room, index) => (
                 <div
@@ -59,7 +60,10 @@ const Roms = () => {
                   data-aos-duration="1000"
                   key={index}
                 >
-                  <div className="room-wrap d-md-flex flex-md-column-reverse">
+                  <div
+                    className="room-wrap d-md-flex flex-md-column-reverse"
+                    onClick={() => handeDetail(room.name, room._id)}
+                  >
                     <NavLink
                       to="#"
                       className="img img-room"
@@ -67,12 +71,7 @@ const Roms = () => {
                     ></NavLink>
                     <div className="text p-5 text-center">
                       <h3>
-                        <NavLink
-                          to="#"
-                          onClick={() => handeDetail(room.name, room._id)}
-                        >
-                          {room.name}
-                        </NavLink>
+                        <NavLink to="#">{room.name}</NavLink>
                       </h3>
                       <p>{room.description}</p>
                       <p className="mb-0 mt-2">
