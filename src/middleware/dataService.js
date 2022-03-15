@@ -1,5 +1,6 @@
+const REACT_APP_API_URL = "https://bme-client-backend-1.herokuapp.com/api";
 const getAllRoom = async () => {
-  const rooms = await fetch(`${process.env.REACT_APP_API_URL}/rooms/`)
+  const rooms = await fetch(`${REACT_APP_API_URL}/rooms/`)
     .then((response) => {
       return response;
     })
@@ -11,7 +12,7 @@ const getAllRoom = async () => {
 };
 
 const getRoomById = async (id) => {
-  const room = await fetch(`${process.env.REACT_APP_API_URL}/rooms/${id}`)
+  const room = await fetch(`${REACT_APP_API_URL}/rooms/${id}`)
     .then((response) => {
       return response;
     })
@@ -22,7 +23,7 @@ const getRoomById = async (id) => {
 };
 
 const getAllBlog = async () => {
-  const blogs = await fetch(`${process.env.REACT_APP_API_URL}/blogs/`)
+  const blogs = await fetch(`${REACT_APP_API_URL}/blogs/`)
     .then((response) => {
       return response;
     })
@@ -34,7 +35,7 @@ const getAllBlog = async () => {
 };
 
 const getBlogById = async (id) => {
-  const blog = await fetch(`${process.env.REACT_APP_API_URL}/blogs/${id}`)
+  const blog = await fetch(`${REACT_APP_API_URL}/blogs/${id}`)
     .then((response) => {
       return response;
     })
