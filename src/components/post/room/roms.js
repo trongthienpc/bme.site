@@ -24,6 +24,8 @@ const Roms = () => {
     result();
   }, []);
 
+  console.log(rooms);
+
   const handeDetail = async (text, id) => {
     const roomDetail = await getRoomById(id)
       .then((response) => {
@@ -54,7 +56,7 @@ const Roms = () => {
           </div>
           <div className="row justify-content-center room">
             <section className="light">
-              <div className="container ">
+              <div className="container">
                 {rooms &&
                   rooms.map((room, index) => (
                     // <div
@@ -91,6 +93,7 @@ const Roms = () => {
                     // </div>
 
                     <div
+                      key={index}
                       className="card mb-6 h-100"
                       style={{ "max-width": "1080px", margin: "6rem auto" }}
                     >
@@ -110,18 +113,43 @@ const Roms = () => {
                         </Carousel>
                       </div>
                       <div className="col-md-4">
-                        <div className="card-body">
-                          <h5 className="card-title">Card title</h5>
-                          <p className="card-text">
-                            This is a wider card with supporting text below as a
-                            natural lead-in to additional content. This content
-                            is a little bit longer.
+                        <div className="card-body text p-3 text-center">
+                          <h3>
+                            <NavLink to="#">{room.name}</NavLink>
+                          </h3>
+                          <p>{room.description}</p>
+                          <p className="mb-0 mt-2">
+                            <span className="me-3 price">
+                              ${room.price} <small>/ night</small>
+                            </span>
+                            <button to="#" className="btn btn-primary">
+                              Book Now
+                            </button>
                           </p>
-                          <p className="card-text">
+                          {/* <div className="d-md-flex mt-5"> */}
+                          <ul className="list">
+                            <li>
+                              <span>Max:</span> {room.max}
+                            </li>
+                            <li>
+                              <span>Size:</span> {room.size}
+                            </li>
+                            {/* </ul>
+                          <ul className="list ms-md-5"> */}
+                            <li>
+                              <span>View:</span> {room.view}
+                            </li>
+                            <li>
+                              <span>Bed:</span> {room.bed}
+                            </li>
+                          </ul>
+                          {/* </div> */}
+
+                          {/* <p className="card-text">
                             <small className="text-muted">
                               Last updated 3 mins ago
                             </small>
-                          </p>
+                          </p> */}
                         </div>
                       </div>
                     </div>

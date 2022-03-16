@@ -1,13 +1,8 @@
 .room {
   cursor: pointer;
 }
-@import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
-/* This pen */
 
-@media screen and (min-width: 769px) {
-  .card {
-    flex-wrap: inherit;
-  }
+@media screen and (min-width: 768px) {
   .card:nth-child(2n + 1) {
     flex-direction: row;
   }
@@ -26,4 +21,29 @@
 
 .mb-6 {
   margin-bottom: 6rem;
+}
+
+.carousel {
+  height: 100%;
+}
+
+.carousel-inner {
+  height: 100%;
+}
+.carousel-item {
+  height: 100%;
+}
+.carousel-item img {
+  height: 100%;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.list li {
+  margin-right: 1rem;
 }
