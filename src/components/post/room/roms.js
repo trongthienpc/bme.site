@@ -95,7 +95,7 @@ const Roms = () => {
                     <div
                       key={index}
                       className="card mb-6 h-100"
-                      style={{ "max-width": "1080px", margin: "6rem auto" }}
+                      style={{ maxWidth: "1080px", margin: "6rem auto" }}
                     >
                       <div className="col-md-8">
                         <Carousel>
@@ -113,7 +113,7 @@ const Roms = () => {
                         </Carousel>
                       </div>
                       <div className="col-md-4">
-                        <div className="card-body text p-3 text-center">
+                        <div className="card-body text p-3 text-center pt-5">
                           <h3>
                             <NavLink to="#">{room.name}</NavLink>
                           </h3>
