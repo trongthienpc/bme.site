@@ -1,3 +1,29 @@
 .room {
   cursor: pointer;
 }
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
+/* This pen */
+
+@media screen and (min-width: 769px) {
+  .card {
+    flex-wrap: inherit;
+  }
+  .card:nth-child(2n + 1) {
+    flex-direction: row;
+  }
+  .card:nth-child(2n + 0) {
+    flex-direction: row-reverse;
+  }
+}
+
+.card {
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.card-body {
+  color: #999;
+}
+
+.mb-6 {
+  margin-bottom: 6rem;
+}

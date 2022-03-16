@@ -18,7 +18,7 @@ const BlogDetail = () => {
               />
             </div>
             <div className="room-detail-content">
-              <h2>{entity && entity.name}</h2>
+              {/* <h2>{entity && entity.name}</h2> */}
               {entity && parse(entity.content)}
             </div>
           </div>

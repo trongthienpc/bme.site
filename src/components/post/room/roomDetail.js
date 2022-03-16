@@ -25,7 +25,6 @@ const RoomDetail = ({ roomId }) => {
                   </CarouselItem>
                 ))}
             </Carousel>
-
             <div className="room-detail-content">
               <h2>{room.name}</h2>
               <p>{room.description}</p>

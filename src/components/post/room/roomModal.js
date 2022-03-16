@@ -10,7 +10,7 @@ const RoomModal = ({ lgShow, setLgShow }) => {
   return (
     <div>
       <Modal
-        size="xl"
+        size="lg"
         show={lgShow}
         onHide={() => setLgShow(false)}
         aria-labelledby="example-modal-sizes-title-lg"

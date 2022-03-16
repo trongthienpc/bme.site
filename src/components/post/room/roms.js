@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { getAllRoom, getRoomById } from "../../../middleware/dataService";
 import RoomModal from "./roomModal";
+import { getServices } from "../../../middleware/data";
 import "./room.css";
+import { Carousel, CarouselItem } from "react-bootstrap";
 const Roms = () => {
   const [rooms, setRooms] = useState([]);
   const [lgShow, setLgShow] = useState(false);
   const [roomName, setRoomName] = useState("No choose");
   const [roomId, setRoomId] = useState();
   const [active, setActive] = useState(false);
-
+  let services = getServices();
   useEffect(() => {
     const result = async () => {
       const response = await getAllRoom();
@@ -51,41 +53,82 @@ const Roms = () => {
             </div>
           </div>
           <div className="row justify-content-center room">
-            {rooms &&
-              rooms.map((room, index) => (
-                <div
-                  className="col-md-6 col-lg-4 d-flex align-items-stretch"
-                  data-aos="flip-left"
-                  data-aos-delay="100"
-                  data-aos-duration="1000"
-                  key={index}
-                >
-                  <div
-                    className="room-wrap d-md-flex flex-md-column-reverse"
-                    onClick={() => handeDetail(room.name, room._id)}
-                  >
-                    <NavLink
-                      to="#"
-                      className="img img-room"
-                      style={{ backgroundImage: `url(${room.image})` }}
-                    ></NavLink>
-                    <div className="text p-5 text-center">
-                      <h3>
-                        <NavLink to="#">{room.name}</NavLink>
-                      </h3>
-                      <p>{room.description}</p>
-                      <p className="mb-0 mt-2">
-                        <span className="me-3 price">
-                          ${room.price} <small>/ night</small>
-                        </span>
-                        <button to="#" className="btn btn-primary">
-                          Book Now
-                        </button>
-                      </p>
+            <section className="light">
+              <div className="container ">
+                {rooms &&
+                  rooms.map((room, index) => (
+                    // <div
+                    //   className="col-md-6 col-lg-4 d-flex align-items-stretch"
+                    //   data-aos="flip-left"
+                    //   data-aos-delay="100"
+                    //   data-aos-duration="1000"
+                    //   key={index}
+                    // >
+                    //   <div
+                    //     className="room-wrap d-md-flex flex-md-column-reverse"
+                    //     onClick={() => handeDetail(room.name, room._id)}
+                    //   >
+                    //     <NavLink
+                    //       to="#"
+                    //       className="img img-room"
+                    //       style={{ backgroundImage: `url(${room.image})` }}
+                    //     ></NavLink>
+                    //     <div className="text p-5 text-center">
+                    //       <h3>
+                    //         <NavLink to="#">{room.name}</NavLink>
+                    //       </h3>
+                    //       <p>{room.description}</p>
+                    //       <p className="mb-0 mt-2">
+                    //         <span className="me-3 price">
+                    //           ${room.price} <small>/ night</small>
+                    //         </span>
+                    //         <button to="#" className="btn btn-primary">
+                    //           Book Now
+                    //         </button>
+                    //       </p>
+                    //     </div>
+                    //   </div>
+                    // </div>
+
+                    <div
+                      className="card mb-6 h-100"
+                      style={{ "max-width": "1080px", margin: "6rem auto" }}
+                    >
+                      <div className="col-md-8">
+                        <Carousel>
+                          {room &&
+                            room.images.map((img, i) => (
+                              <CarouselItem key={i}>
+                                <img
+                                  className="d-block w-100 "
+                                  src={img}
+                                  alt={`${i} slide`}
+                                  key={i}
+                                />
+                              </CarouselItem>
+                            ))}
+                        </Carousel>
+                      </div>
+                      <div className="col-md-4">
+                        <div className="card-body">
+                          <h5 className="card-title">Card title</h5>
+                          <p className="card-text">
+                            This is a wider card with supporting text below as a
+                            natural lead-in to additional content. This content
+                            is a little bit longer.
+                          </p>
+                          <p className="card-text">
+                            <small className="text-muted">
+                              Last updated 3 mins ago
+                            </small>
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              ))}
+                  ))}
+              </div>
+            </section>
+
             {active && <RoomModal lgShow={lgShow} setLgShow={setLgShow} />}
           </div>
         </div>

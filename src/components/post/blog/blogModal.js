@@ -12,7 +12,7 @@ const BlogModal = ({ lgShow, setLgShow }) => {
   return (
     <div>
       <Modal
-        size="xl"
+        size="lg"
         show={lgShow}
         onHide={handleHide}
         aria-labelledby="example-modal-sizes-title-lg"
