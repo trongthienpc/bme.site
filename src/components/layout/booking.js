@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./booking.css";
 export default class Booking extends Component {
   render() {
     return (
@@ -9,12 +10,12 @@ export default class Booking extends Component {
             <div className="row">
               <div className="col-md-12 booking-form">
                 <div className="row g-0">
-                  <div className="col-md-6 col-lg form-wrap d-flex py-3 py-lg-5 px-4">
+                  <div className="col-md-8 col-lg form-wrap d-flex py-3 py-lg-5 px-4">
                     <div
                       className="form-group ps-4 border-0"
                       style={{ textAlign: "center" }}
                     >
-                      <label style={{ fontSize: 26 }}>
+                      <label className="hotline">
                         <span
                           className="fa fa-phone"
                           style={{ color: "#fff" }}
@@ -23,7 +24,7 @@ export default class Booking extends Component {
                       </label>
                     </div>
                   </div>
-                  <div className="col-md-6 col-lg form-wrap d-flex py-3 py-lg-5 px-4">
+                  <div className="col-md-4 col-lg form-wrap d-flex py-3 py-lg-5 px-4">
                     <div
                       className="form-group ps-4 border-0"
                       style={{ textAlign: "center" }}
