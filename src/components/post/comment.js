@@ -37,20 +37,44 @@ const Comment = () => {
               </h3>
             </div>
             <div className="row people">
-              {comments.map((com, index) => (
-                <div className="col-md-6 col-lg-4 item" key={index}>
-                  <div className="box">
-                    <img
-                      className="rounded-circle"
-                      src="assets/img/3.jpg"
-                      alt=""
-                    />
-                    <h3 className="name">{com.name}</h3>
-                    <p className="title">{com.position}</p>
-                    <p className="description">{com.comment} </p>
-                  </div>
-                </div>
-              ))}
+              <div className="carousel-testimony">
+                <Carousel
+                  swipeable={false}
+                  draggable={false}
+                  showDots={true}
+                  responsive={responsive}
+                  ssr={true} // means to render carousel on server-side.
+                  infinite={true}
+                  // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+                  autoPlaySpeed={1000}
+                  keyBoardControl={true}
+                  customTransition="all .5"
+                  transitionDuration={500}
+                  containerClass="carousel-container"
+                  removeArrowOnDeviceType={["tablet", "mobile"]}
+                  //deviceType={this.props.deviceType}
+                  dotListClass="custom-dot-list-style"
+                  itemClass="carousel-item-padding-40-px"
+                >
+                  {comments.map((com, index) => (
+                    <div className="item" key={index}>
+                      <div className="testimony-wrap">
+                        <div className="text">
+                          <img
+                            className="rounded-circle"
+                            src="assets/img/3.jpg"
+                            alt=""
+                          />
+                          <h3 className="name">{com.name}</h3>
+                          <p className="title">{com.position}</p>
+                          <p className="description">{com.comment} </p>
+                          <p className="text-right">12 days ago</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </Carousel>
+              </div>
             </div>
           </div>
         </div>
