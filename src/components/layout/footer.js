@@ -1,4 +1,4 @@
-import React, { } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { getServices } from "../../middleware/data";
 
@@ -110,7 +110,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="container-fluid px-0 py-5 bg-darken">
+        <div className="container-fluid px-0 py-3 bg-darken">
           <div className="container-xl">
             <div className="row">
               <div className="col-md-12 text-center">
@@ -121,7 +121,7 @@ const Footer = () => {
                     fontSize: 13,
                   }}
                 >
-                  Thank you{" "}
+                  {/* Thank you{" "}
                   <i
                     className="fa fa-heart color-danger"
                     aria-hidden="true"
@@ -133,7 +133,7 @@ const Footer = () => {
                     rel="nofollow noopener"
                   >
                     Colorlib
-                  </NavLink>{" "}
+                  </NavLink>{" "} */}
                   | Edited by @thientt{" "}
                 </p>
               </div>
