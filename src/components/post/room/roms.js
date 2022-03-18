@@ -43,7 +43,7 @@ const Roms = () => {
   return (
     <div id="rooms">
       <section className="ftco-section bg-light">
-        <div className="container-xl">
+        <div className="container-xl ">
           <div className="row justify-content-center">
             <div
               className="col-md-8 heading-section text-center mb-5"
@@ -56,7 +56,7 @@ const Roms = () => {
           </div>
           <div className="row justify-content-center room">
             <section className="light">
-              <div className="container">
+              <div className="container room-container">
                 {rooms &&
                   rooms.map((room, index) => (
                     // <div
