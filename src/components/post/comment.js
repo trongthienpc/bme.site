@@ -27,7 +27,7 @@ const Comment = () => {
 
   return (
     <div>
-      <section className="ftco-section testimony-section bg-light">
+      <section className="ftco-section testimony-section bg-light comment">
         <div className="team-boxed">
           <div className="container">
             <div className="intro">
