@@ -1,4 +1,5 @@
-const REACT_APP_API_URL = "https://bme-client-backend-1.herokuapp.com/api";
+// const REACT_APP_API_URL = "https://bme-client-backend-1.herokuapp.com/api";
+const REACT_APP_API_URL = "https://bme-site-backend.herokuapp.com/api";
 const getAllRoom = async () => {
   const rooms = await fetch(`${REACT_APP_API_URL}/rooms/`)
     .then((response) => {
@@ -45,4 +46,15 @@ const getBlogById = async (id) => {
   return blog;
 };
 
-export { getAllBlog, getAllRoom, getBlogById, getRoomById };
+const getComnents = async () => {
+  const comments = await fetch(`${REACT_APP_API_URL}/comments/`)
+    .then((res) => {
+      return res;
+    })
+    .then((data) => {
+      return data.json();
+    });
+
+  return comments;
+};
+export { getAllBlog, getAllRoom, getBlogById, getRoomById, getComnents };

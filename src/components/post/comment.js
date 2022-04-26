@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 // import "react-multi-carousel/lib/styles.css";
 import "./comment.css";
-import { getComnents } from "../../middleware/data";
+// import { getComnents } from "../../middleware/data";
+import { getComnents } from "../../middleware/dataService";
 import { Pagination } from "react-bootstrap";
+import Moment from "react-moment";
 const Comment = () => {
+  const [comments, setComments] = useState([]);
+  useEffect(() => {
+    const result = async () => {
+      const response = await getComnents();
+      if (response.length > 0) {
+        setComments(() => {
+          return response;
+        });
+      }
+    };
+
+    result();
+  }, []);
+
+  console.log(comments);
+
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -23,8 +41,6 @@ const Comment = () => {
     },
   };
 
-  let comments = getComnents();
-
   return (
     <div>
       <section className="ftco-section testimony-section bg-light comment">
@@ -39,8 +55,8 @@ const Comment = () => {
             <div className="row people">
               <div className="carousel-testimony">
                 <Carousel
-                  swipeable={false}
-                  draggable={false}
+                  swipeable={true}
+                  draggable={true}
                   showDots={true}
                   responsive={responsive}
                   ssr={true} // means to render carousel on server-side.
@@ -51,7 +67,7 @@ const Comment = () => {
                   customTransition="all .5"
                   transitionDuration={500}
                   containerClass="carousel-container"
-                  removeArrowOnDeviceType={["tablet", "mobile"]}
+                  // removeArrowOnDeviceType={["tablet", "mobile"]}
                   //deviceType={this.props.deviceType}
                   dotListClass="custom-dot-list-style"
                   itemClass="carousel-item-padding-40-px"
@@ -68,7 +84,9 @@ const Comment = () => {
                           <h3 className="name">{com.name}</h3>
                           <p className="title">{com.position}</p>
                           <p className="description">{com.comment} </p>
-                          <p className="text-right">12 days ago</p>
+                          <p className="text-right">
+                            <Moment fromNow>{com.date}</Moment>
+                          </p>
                         </div>
                       </div>
                     </div>
