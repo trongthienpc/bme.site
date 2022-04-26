@@ -82,7 +82,7 @@ const Comment = () => {
                             alt=""
                           />
                           <h3 className="name">{com.name}</h3>
-                          <p className="title">{com.position}</p>
+                          <p className="title">{com.nation}</p>
                           <p className="description">{com.comment} </p>
                           <p className="text-right">
                             <Moment fromNow>{com.date}</Moment>
